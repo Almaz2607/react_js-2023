@@ -1,7 +1,12 @@
+import { useState } from "react";
+import Counter from "./components/Counter";
+
 function App() {
+  const [value, setValue] = useState("Input text");
+
   return (
     <div className="App">
-      <h1>Hello React JS</h1>
+      <Counter />
     </div>
   );
 }
