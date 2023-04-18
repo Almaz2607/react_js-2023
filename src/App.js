@@ -10,6 +10,7 @@ import PostService from "./API/PostService";
 import Loader from "./components/UI/loader/Loader";
 import { useFetching } from "./hooks/useFetching";
 import { getPageCount, getPagesArray } from "./utils/pages";
+import Pagination from "./components/UI/pagination/Pagination";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -28,8 +29,6 @@ function App() {
       setTotalPages(getPageCount(totalCount, limit));
     }
   );
-
-  let pagesArray = getPagesArray(totalPages);
 
   useEffect(() => {
     fetchPosts(limit, page);
@@ -73,17 +72,7 @@ function App() {
           title={"Список про JS"}
         />
       )}
-      <div className="page__wrapper">
-        {pagesArray.map((p) => (
-          <span
-            key={p}
-            className={page === p ? "page page-current" : "page"}
-            onClick={() => changePage(p)}
-          >
-            {p}
-          </span>
-        ))}
-      </div>
+      <Pagination totalPages={totalPages} page={page} changePage={changePage} />
     </div>
   );
 }
