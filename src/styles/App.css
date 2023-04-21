@@ -80,13 +80,13 @@ h2 {
   width: 800px;
   background-color: lightgray;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   align-items: center;
   padding: 0 15px;
   margin-bottom: 20px;
   cursor: pointer;
 }
 
-.nav > a {
+.nav__link > a {
   margin-right: 10px;
 }
